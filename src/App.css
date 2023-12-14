@@ -1,0 +1,20 @@
+body{
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin: 0;
+
+}
+
+.nav-item{
+    list-style: none;
+    text-decoration: none;
+    padding: 2px;
+}
