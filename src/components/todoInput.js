@@ -1,6 +1,6 @@
 import React from 'react'
 
-function todoInput() {
+function TodoInput() {
   return (
     <>
       <input type="text" placeholder='Enter your text here' />
@@ -9,4 +9,4 @@ function todoInput() {
   )
 }
 
-export default todoInput
+export default TodoInput

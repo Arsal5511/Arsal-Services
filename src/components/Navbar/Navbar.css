@@ -1,0 +1,60 @@
+.header{
+    margin: 0;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid gainsboro;
+}
+.header a{
+    text-decoration: none;
+}
+.logo{
+    display: flex;
+    align-items: center;
+    background-color: white;
+    color: blue;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+.logo div{
+    padding: 7px;
+    font-weight:bold;
+    font-size: large;
+    
+}
+#name{
+    color: blue;
+    border-width: 2px 0px 2px 2px;
+    border-style: solid;
+    border-color: blue;
+    border-radius: 10px 0px 0px 10px;
+}
+#service{
+    background-color: blue;
+    border-radius:0px 10px 10px 0px;
+    color: rgb(255, 255, 255);
+    border-width: 2px 2px 2px 0px;
+    border-style: solid;
+    border-color: blue;
+}
+.navbar{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link a{
+    padding: 15px 0px;
+    padding-left: 30px;
+    text-decoration: none;
+    color: rgb(58, 58, 255);
+    font-size: large;
+}
+
+.nav-link a:hover{
+    cursor: pointer;
+    color: black
+}
