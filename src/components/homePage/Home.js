@@ -1,5 +1,6 @@
 import React from "react";
-import "./todo.css";
+import "./Home.css";
+
 
 const Home = () => {
   let data = [
@@ -47,7 +48,7 @@ const Home = () => {
             <p className="section-description">{item.description}</p>
           </div>
           <div className="main-image main-content">
-            <img src={item.src} alt="vector img" width={"500px"} />
+            <img src={item.src} alt="vector img" />
           </div>
         </div>
       ))}
