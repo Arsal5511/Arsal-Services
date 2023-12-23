@@ -89,18 +89,16 @@
 }
 input [type='checkbox'] {
     cursor: pointer;
+    outline-offset: unset;
+    outline: none;
 }
 .buttons>svg:hover{
     color: red;
-    transition: 0.8s;
-    transform: scale(1.5);
     cursor: pointer;
 }
 
 .textWrapper{
-    display: flex;
-    align-items: center;
-    align-items: center;
+    max-width: 200px;
 }
 
 .textWrapper > input{
