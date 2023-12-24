@@ -47,7 +47,7 @@
     font-size: large;
     outline: none;    
 }
-.input_section > svg {
+.addButton {
     color: var(--blue-color);
     line-height: 30px;
     font-size: 60px;
@@ -113,18 +113,18 @@ input [type='checkbox'] {
     border: none;
     outline-style: none;
 }
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     #todo_section{
-        width: 80%;
+        width: 90%;
     }
 
 }
 
 @media (max-width: 425px) {
 
-    #todo_section{
+    /* #todo_section{
         width: 90%;
-    }
+    } */
     .main_heading{
         text-align: center;
         font-size: 30px;
