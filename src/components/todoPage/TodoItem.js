@@ -1,78 +1,62 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { AiOutlineForm } from "react-icons/ai";
-import { LuSave } from "react-icons/lu";
-import './Todo.css'
-
-
-
+import { FaCheckCircle } from "react-icons/fa";
+import ModalButton from "../common/ModalButton";
+import TodoForm from "../common/TodoForm";
+import "./Todo.css";
 
 const TodoItem = ({ todo, onDelete, onEdit }) => {
-    const [done, setDone] = useState(false);
-    const handleCheckButton = () => {
-        setDone(!done);
-    };
+  const [done, setDone] = useState(false);
+  const handleCheckButton = () => {
+    setDone(!done);
+  };
 
-    const [editedText, setEditedText] = useState(todo.text);
-    const [isEditing, setIsEditing] = useState(false);
+  return (
+    <div>
+        <div className=" flex justify-between items-center shadow-md bg-blue-200 border-blue-400 px-4 p-3 m-4 rounded-lg">
+          <div className="">
+            <input
+              type="checkbox"
+              className="mr-2 cursor-pointer"
+              checked={done}
+              onChange={handleCheckButton}
+            />
+            <span className={`${!done ? "text-blue-800" : "text-green-800"} text-xl font-medium capitalize`}>
+              {todo.text} {!done ? "" : <FaCheckCircle className="inline-block ml-2 text-lg" />}
+            </span>
+          </div>
+          <div className="flex flex-nowrap">
+            <ModalButton
+              Button={({ toggleModal }) => {
+                return (
+                  <AiOutlineForm
+                    className="text-xl ml-3 cursor-pointer hover:text-[#163c90]"
+                    onClick={() => {
+                      toggleModal();
+                    }}
+                  />
+                );
+              }}
+              title={"Add your Plan Todo"}
+              Content={({ toggleModal }) => {
+                return (
+                  <>
+                    <TodoForm
+                      toggleModal={toggleModal}
+                      todo={todo}
+                      onEdit={onEdit}
+                      target={"update"}
+                    />
+                  </>
+                );
+              }}
+            />
+            <AiOutlineDelete className="text-xl ml-3 cursor-pointer hover:text-[#163c90]" onClick={() => onDelete(todo.id)} />
+          </div>
+        </div>
+    </div>
+  );
+};
 
-
-
-    const handleEditToggle = () => {
-        setIsEditing(!isEditing);
-    }
-    const handleSave = () => {
-        setIsEditing(false);
-        onEdit(todo.id, editedText);
-    };
-
-    const handleEnter = (button) => {
-        if (button.key === "Enter") {
-            handleSave();
-        }
-    };
-
-    return (
-
-        <div>
-            {isEditing ? (
-                <div className='todo-item'>
-                    <div className='textWrapper'>
-                        <input
-                            ref={(input) => { input?.focus(); }}
-                            className='edit_todo'
-                            onKeyDown={handleEnter}
-                            type="text"
-                            value={editedText}
-                            onChange={(e) => setEditedText(e.target.value)}
-                        />
-                    </div>
-                    <div className="buttons">
-                        <LuSave onClick={handleSave} />
-                        <AiOutlineDelete onClick={() => onDelete(todo.id)} />
-                    </div>
-                </div>
-            ) : (
-                <div className='todo-item'>
-                    <div className='textWrapper'>
-                        <input type="checkbox"
-                            className='checkBox'
-                            checked={done}
-                            onChange={handleCheckButton}
-                        />
-                        <span className={`${done ? 'redColor' : 'blueColor'} todo_text `} >{todo.text}</span>
-                    </div>
-                    <div className="buttons">
-                        <AiOutlineForm onClick={handleEditToggle} />
-                        <AiOutlineDelete onClick={() => onDelete(todo.id)} />
-                    </div>
-                </div>
-
-            )
-            }
-
-        </div >
-    )
-}
-
-export default TodoItem
+export default TodoItem;

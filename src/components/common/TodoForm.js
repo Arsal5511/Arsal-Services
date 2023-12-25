@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
-const TodoForm = ({ toggleModal, todos, setTodos }) => {
-  const [inputText, setInputText] = useState("");
-
+const TodoForm = ({ toggleModal, todos, todo, setTodos, onEdit, target }) => {
+  const [inputText, setInputText] = useState(todo ? todo.text: "");
   const addData = () => {
     if (inputText.trim() !== "") {
       const newTodo = {
@@ -17,26 +16,26 @@ const TodoForm = ({ toggleModal, todos, setTodos }) => {
       setInputText("");
     }
   };
+  const handleSave = () => {
+    if (target === "update") {
+      onEdit(todo.id, inputText);
+    } else {
+      addData();
+    }
+    toggleModal();
+  };
 
   const handleEnter = (button) => {
     if (button.key === "Enter") {
-      addData();
-      toggleModal()
+      handleSave();
     }
   };
 
-  const handleSave = () =>{
-    addData();
-    toggleModal();
-  }
   return (
     <section>
       <div className="my-6">
-        <label className="text-lg">
-            Todo Task:
-        </label>
+        <label className="text-lg">Todo Task</label>
         <input
-        //   defaultValue={}
           onKeyDown={handleEnter}
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
@@ -51,11 +50,13 @@ const TodoForm = ({ toggleModal, todos, setTodos }) => {
           onClick={() => {
             toggleModal();
           }}
-          className="red-button-rounded"
+          className="white-button"
         >
           Cancel
         </button>
-        <button onClick={handleSave} className="white-button-rounded">Save</button>
+        <button onClick={handleSave} className="blue-button">
+          {target === "update" ? "Update" : "Save"}
+        </button>
       </div>
     </section>
   );
