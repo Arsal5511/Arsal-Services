@@ -4,7 +4,6 @@ import { AiOutlineForm } from "react-icons/ai";
 import { FaCheckCircle } from "react-icons/fa";
 import ModalButton from "../common/ModalButton";
 import TodoForm from "../common/TodoForm";
-import "./Todo.css";
 
 const TodoItem = ({ todo, onDelete, onEdit }) => {
   const [done, setDone] = useState(false);

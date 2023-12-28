@@ -9,21 +9,21 @@ const Home = () => {
       title: "Free Services",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, labore quidem! Numquam, aperiam atque est quidem modi, ad, molestias voluptatum id tenetur corrupti dolorum. Quo itaque ad eligendi recusandae ex?",
-      src: "/images/landing-page/first-img.jpg",
+      src: "/images/landing-page/4905784.jpg",
     },
     {
       id: 2,
       title: "Key Features",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, labore quidem! Numquam, aperiam atque est quidem modi, ad, molestias voluptatum id tenetur corrupti dolorum. Quo itaque ad eligendi recusandae ex?",
-      src: "/images/landing-page/first-img.jpg",
+      src: "/images/landing-page/4567334.jpg",
     },
     {
       id: 3,
       title: "About Us",
       description:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas, labore quidem! Numquam, aperiam atque est quidem modi, ad, molestias voluptatum id tenetur corrupti dolorum. Quo itaque ad eligendi recusandae ex?",
-      src: "/images/landing-page/first-img.jpg",
+      src: "/images/landing-page/3236267.jpg",
     },
   ];
   function checkOddEven(number) {
@@ -34,7 +34,7 @@ const Home = () => {
     }
   }
   return (
-    <>
+    <section>
       {data.map((item, index) => (
         <div
           key={index}
@@ -52,7 +52,7 @@ const Home = () => {
           </div>
         </div>
       ))}
-    </>
+    </section>
   );
 };
 

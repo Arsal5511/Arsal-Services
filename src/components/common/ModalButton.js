@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Transition, Dialog } from "@headlessui/react";
-import './../todoPage/Todo.css'
+// import './../todoPage/Todo.css'
 export default function ModalButton({ label, title, Content, Button }) {
   const [modalOpen, setModalOpen] = useState(false);
 

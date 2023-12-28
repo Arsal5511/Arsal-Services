@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const TodoForm = ({ toggleModal, todos, todo, setTodos, onEdit, target }) => {
-  const [inputText, setInputText] = useState(todo ? todo.text: "");
+  const [inputText, setInputText] = useState(todo ? todo.text : "");
   const addData = () => {
     if (inputText.trim() !== "") {
       const newTodo = {
@@ -10,6 +10,7 @@ const TodoForm = ({ toggleModal, todos, todo, setTodos, onEdit, target }) => {
       };
       const updData = [...todos, newTodo];
       setTodos(updData);
+
       // console.log(updData, "todo");
       const sessionalData = JSON.stringify(updData);
       sessionStorage.setItem("myPlans", sessionalData);
