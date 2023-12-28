@@ -2,7 +2,7 @@ import React from "react";
 import TodoItem from "./TodoItem";
 
 const TodoList = (props) => {
-  const { todos, onDelete, onEdit } = props;
+  const { color, todos, onDelete, onEdit } = props;
   return (
     <div>
       {todos.length === 0 ? (
@@ -14,6 +14,7 @@ const TodoList = (props) => {
       ) : (
         todos?.map((todo) => (
           <TodoItem
+            color={color}
             todo-item
             key={todo.id}
             todo={todo}

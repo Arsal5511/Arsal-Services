@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import TodoList from "./TodoList";
 import { MdAddCircleOutline } from "react-icons/md";
 import ModalButton from "../common/ModalButton";
 import TodoForm from "../common/TodoForm";
+import Tabs from "./Tabs";
 
 const Index = () => {
   const [todos, setTodos] = useState([]);
@@ -27,9 +27,9 @@ const Index = () => {
     sessionStorage.setItem("myPlans", sessionalData);
   };
 
-  const handleEditTodo = (id, newText) => {
+  const handleEditTodo = (id, updatedData) => {
     const updatedTodos = todos?.map((todo) =>
-      todo.id === id ? { ...todo, text: newText } : todo
+      todo.id === id ? { ...todo, ...updatedData } : todo
     );
     const sessionalData = JSON.stringify(updatedTodos);
     sessionStorage.setItem("myPlans", sessionalData);
@@ -38,8 +38,8 @@ const Index = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center h-[100vh] mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto">
-        <h2 className="primary-heading my-3 text-black">Daily Work Planner</h2>
+      <div className="flex flex-col items-center h-[100vh] mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto ">
+        <h2 className="primary-heading  text-center my-3 text-black">Daily Work Planner</h2>
         <div className="flex flex-col-reverse md:flex-row items-center">
           <h2 className="secondary-heading mt-6 md:mr-4 md:mt-0">
             Add your first Todo! <span className="relative bottom-[6px] ">👉🏻</span>
@@ -70,8 +70,8 @@ const Index = () => {
             }}
           />
         </div>
-        <div className="w-[80%]">
-          <TodoList
+        <div className="w-[95%] md:w-[70%]">
+          <Tabs
             todos={todos}
             onDelete={handleDeleteTodo}
             onEdit={handleEditTodo}

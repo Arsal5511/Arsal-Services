@@ -36,7 +36,7 @@ function Navbar() {
   return (
     <section className='relative'>
       <Router >
-        <main className="fixed w-[100%] top-0  flex items-center justify-between z-[100]  px-[30px] py-[20px] backdrop-blur-sm bg-[255,255,255, 0.9]  border-b-2 border-[42, 39, 39, 0.3] "  >
+        <main className="fixed w-[100%] top-0  flex items-center justify-between z-[100]  px-[30px] py-[20px] backdrop-blur-sm bg-[255,255,255, 0.9]  border-b-2 border-[42, 39, 39, 0.7] "  >
           <Link to={"/"}>
             <div className="flex items-center bg-white text-lg md:text-xl " >
               <div id="name" className=" p-1 md:p-2 text-[#163c90] bg-white border-2 rounded-tl-xl rounded-bl-xl border-[#163c90]">Arsal </div>

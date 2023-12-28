@@ -4,34 +4,46 @@ import { AiOutlineForm } from "react-icons/ai";
 import { FaCheckCircle } from "react-icons/fa";
 import ModalButton from "../common/ModalButton";
 import TodoForm from "../common/TodoForm";
+import dayjs from "dayjs";
 
-const TodoItem = ({ todo, onDelete, onEdit }) => {
-  const [done, setDone] = useState(false);
+
+const TodoItem = ({ color, todo, onDelete, onEdit }) => {
+  const [done, setDone] = useState(todo.checked);
   const handleCheckButton = () => {
-    setDone(!done);
+    let updCheckbox = !done
+    setDone(updCheckbox);
+    onEdit(todo.id, { checked: updCheckbox })
   };
-
+  const myDate = dayjs(todo.date);
+  const Date = myDate.format('MMMM DD, YYYY')
+  // const myColor = "bg-[" + color + "]"
   return (
     <div>
-      <div className=" flex justify-between items-center shadow-md bg-blue-200 border-blue-400 px-4 p-3 m-4 rounded-lg">
-        <div className="">
+      <div style={{ background: color }} className={`flex justify-between items-center shadow-md p-3 my-4 rounded-lg`}>
+        <div className="flex items-start space-x-2">
           <input
             type="checkbox"
-            className="mr-2 cursor-pointer"
+            className="mr-1 cursor-pointer my-1"
             checked={done}
             onChange={handleCheckButton}
           />
-          <span
-            className={`${!done ? "text-blue-800" : "text-green-800"
-              } text-xl font-medium capitalize`}
-          >
-            {todo.text}{" "}
-            {!done ? (
-              ""
-            ) : (
-              <FaCheckCircle className="inline-block ml-2 text-lg" />
-            )}
-          </span>
+          <div className="flex flex-col">
+
+            <h2
+              className={`${done ? "text-green-800" : "text-blue-800"
+                } text-xl font-medium capitalize`}
+            >
+              {todo.text}{" "}
+              {done ? (
+                <FaCheckCircle className="inline-block ml-1 text-lg" />
+              ) : (
+                ""
+              )}
+            </h2>
+            <h5 className="text-sm text-gray-600">
+              {Date}
+            </h5>
+          </div>
         </div>
         <div className="flex flex-nowrap">
           <ModalButton
