@@ -19,7 +19,7 @@ const TodoItem = ({ color, todo, onDelete, onEdit }) => {
   // const myColor = "bg-[" + color + "]"
   return (
     <div>
-      <div style={{ background: color }} className={`flex justify-between items-center shadow-md p-3 my-4 rounded-lg`}>
+      < div style={{ background: color }} className={`flex justify-between items-center shadow-md p-3 my-4 rounded-lg`}>
         <div className="flex items-start space-x-2">
           <input
             type="checkbox"

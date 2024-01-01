@@ -9,6 +9,7 @@ import Home from '../homePage/Home';
 import Todo from '../todoPage/Index';
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
+import WorldStats from '../WorldStats/WorldStats';
 
 
 
@@ -22,23 +23,22 @@ function Navbar() {
     },
     {
       id: "2",
-      name: "Services",
-      path: "/Services"
+      name: "World Stats",
+      path: "/worldstats"
     }
   ]
   const [sideBar, setSideBar] = useState(false)
   const toogleNavbar = () => {
     setSideBar(!sideBar);
-    console.log("toogle is clicked", sideBar)
   }
 
 
   return (
     <section className='relative'>
       <Router >
-        <main className="fixed w-[100%] top-0  flex items-center justify-between z-[100]  px-[30px] py-[20px] backdrop-blur-sm bg-[255,255,255, 0.9]  border-b-2 border-[42, 39, 39, 0.7] "  >
+        <main className="fixed w-[100%] top-0  flex items-center justify-between z-[100]  px-[30px] py-[15px] backdrop-blur-sm bg-[255,255,255, 0.9]  border-b-2 border-[42, 39, 39, 0.7] "  >
           <Link to={"/"}>
-            <div className="flex items-center bg-white text-lg md:text-xl " >
+            <div className="flex items-center bg-white " >
               <div id="name" className=" p-1 md:p-2 text-[#163c90] bg-white border-2 rounded-tl-xl rounded-bl-xl border-[#163c90]">Arsal </div>
               <div id='service' className="p-1 md:p-2 text-[#fff] bg-[#163c90] border-2 border-[#163c90] rounded-tr-xl rounded-br-xl"> Services</div>
             </div>
@@ -47,7 +47,7 @@ function Navbar() {
           <nav className='hidden md:block '>
             <ul className='flex text-[#163c90]' >
               {nav.map((item, index) => (
-                <li key={index} className='text-xl ml-6 my-2'>
+                <li key={index} className='text-lg ml-6 my-2'>
                   <Link to={item.path}>{item.name}</Link>
                 </li>
               ))}
@@ -55,7 +55,7 @@ function Navbar() {
             </ul>
           </nav>
         </main>
-        <div onClick={toogleNavbar} className='flex fixed top-7 right-8 text-2xl font-bold transform-1 text-gray-800 md:hidden z-[900] hover:cursor-pointer'>
+        <div onClick={toogleNavbar} className='flex fixed top-[1.25rem] right-8 text-2xl font-bold transform-1 text-gray-800 md:hidden z-[900] hover:cursor-pointer'>
           {sideBar ? <IoMdClose /> : <CiMenuFries />}
         </div>
 
@@ -75,6 +75,7 @@ function Navbar() {
           {/* <Route path="/About" Component={About} /> */}
           <Route path="/" Component={Home} />
           <Route path="/todo" Component={Todo} />
+          <Route path="/worldStats" Component={WorldStats} />
         </Routes>
 
       </Router>

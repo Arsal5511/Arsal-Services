@@ -3,6 +3,8 @@ import { MdAddCircleOutline } from "react-icons/md";
 import ModalButton from "../common/ModalButton";
 import TodoForm from "../common/TodoForm";
 import Tabs from "./Tabs";
+import { FcTodoList } from "react-icons/fc";
+
 
 const Index = () => {
   const [todos, setTodos] = useState([]);
@@ -38,11 +40,12 @@ const Index = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center h-[100vh] mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto ">
+      <div className="flex flex-col items-center  mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto ">
+        <FcTodoList className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px]" />
         <h2 className="primary-heading  text-center my-3 text-black">Daily Work Planner</h2>
         <div className="flex flex-col-reverse md:flex-row items-center">
           <h2 className="secondary-heading mt-6 md:mr-4 md:mt-0">
-            Add your first Todo! <span className="relative bottom-[6px] ">👉🏻</span>
+            Add your first Todo! <span className="relative bottom-[6px] hidden md:inline ">👉🏻</span>
           </h2>
 
           <ModalButton

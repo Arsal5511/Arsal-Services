@@ -4,9 +4,6 @@ import React, { useState } from "react";
 const TodoForm = ({ toggleModal, todos, todo, setTodos, onEdit, target }) => {
   const myDate = dayjs();
   const currentDate = myDate.format('YYYY-MM-DD')
-  // const currentDate = myDate.format('dddd, MMMM DD, YYYY')
-
-
   const [inputText, setInputText] = useState(todo ? todo.text : "");
   const [date, setDate] = useState(currentDate);
 
