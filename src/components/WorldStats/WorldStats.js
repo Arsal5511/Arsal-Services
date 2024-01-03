@@ -9,8 +9,6 @@ import CountryItems from './CountryItems';
 const WorldStats = () => {
     const [data, setData] = useState([])
 
-
-
     const fetchData = () => {
         let getSessionalData = sessionStorage.getItem('world');
         getSessionalData = JSON.parse(getSessionalData);
@@ -20,6 +18,15 @@ const WorldStats = () => {
     useEffect(() => {
         fetchData()
     }, [])
+
+    const handleDelete = (name) => {
+        const updatedStats = data?.filter((country) => {
+            return country?.name.official !== name;
+        });
+        setData(updatedStats);
+        const sessionalData = JSON.stringify(updatedStats);
+        sessionStorage.setItem("world", sessionalData);
+    };
 
 
     return (
@@ -49,7 +56,7 @@ const WorldStats = () => {
                     }}
                 />
             </div>
-            <CountryItems data={data} />
+            <CountryItems data={data} handleDelete={handleDelete} />
 
         </div>
     )
