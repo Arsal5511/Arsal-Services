@@ -10,9 +10,9 @@ const WorldStats = () => {
     const [data, setData] = useState([])
 
     const fetchData = () => {
-        let getSessionalData = sessionStorage.getItem('world');
-        getSessionalData = JSON.parse(getSessionalData);
-        setData(getSessionalData || [])
+        let getLocalData = localStorage.getItem('world');
+        getLocalData = JSON.parse(getLocalData);
+        setData(getLocalData || [])
     }
 
     useEffect(() => {

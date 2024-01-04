@@ -41,8 +41,8 @@ const WorldForm = (props) => {
             setData(updData);
 
             // uploaded data to sessional storage
-            const sessionalData = JSON.stringify(updData);
-            sessionStorage.setItem("world", sessionalData);
+            const localData = JSON.stringify(updData);
+            localStorage.setItem("world", localData);
 
             //refetch new data
             fetchData();

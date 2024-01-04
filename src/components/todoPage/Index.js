@@ -40,7 +40,7 @@ const Index = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center  mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto ">
+      <div className="flex flex-col items-center min-h-[85vh] mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto ">
         <FcTodoList className="w-[50px] h-[50px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px]" />
         <h2 className="primary-heading  text-center my-3 text-black">Daily Work Planner</h2>
         <div className="flex flex-col-reverse md:flex-row items-center">

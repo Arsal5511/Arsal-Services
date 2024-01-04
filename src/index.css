@@ -26,3 +26,9 @@
 .primary-color {
   @apply text-[#163c90];
 }
+@layer utilities {
+  .custom-box-shadow {
+    box-shadow: 16px 23px 32px -10px rgba(0, 0, 0, 0.3),
+      -17px -16px 32px -10px rgba(0, 0, 0, 0.3);
+  }
+}
