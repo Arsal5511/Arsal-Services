@@ -36,18 +36,21 @@ function Navbar() {
   return (
     <section className='relative'>
       <Router >
-        <main className="fixed w-[100%] top-0  flex items-center justify-between z-[100]  px-[30px] py-[15px] backdrop-blur-sm bg-[255,255,255, 0.9]  border-b-2 border-[42, 39, 39, 0.7] "  >
+        <main className="fixed w-[100%] top-0  flex items-center justify-between z-[100]  px-[30px] py-[15px] backdrop-blur-sm bg-[255,255,255, 0.9]  shadow-md"  >
           <Link to={"/"}>
-            <div className="flex items-center bg-white " >
+            {/* <div className="flex items-center  " >
               <div id="name" className=" p-1 md:p-2 text-[#163c90] bg-white border-2 rounded-tl-xl rounded-bl-xl border-[#163c90]">Arsal </div>
               <div id='service' className="p-1 md:p-2 text-[#fff] bg-[#163c90] border-2 border-[#163c90] rounded-tr-xl rounded-br-xl"> Services</div>
+            </div> */}
+            <div>
+              <img src='/images/as.png' alt='logo' className='pl-4 h-[55px]'  />
             </div>
           </Link>
 
           <nav className='hidden md:block '>
             <ul className='flex text-[#163c90]' >
               {nav.map((item, index) => (
-                <li key={index} className='text-lg ml-6 my-2'>
+                <li key={index} className='text-lg font-semibold ml-6 my-2'>
                   <Link to={item.path}>{item.name}</Link>
                 </li>
               ))}

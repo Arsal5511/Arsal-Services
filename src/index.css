@@ -24,7 +24,7 @@
   @apply text-[#163c90] sm:text-2xl text-xl font-bold;
 }
 .primary-color {
-  @apply text-[#163c90];
+  @apply text-[#7494da];
 }
 @layer utilities {
   .custom-box-shadow {

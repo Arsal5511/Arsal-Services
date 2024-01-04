@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import CountryInput from "./CountryInput";
 
 const WorldForm = (props) => {
     const { toggleModal, data, setData, fetchData } = props;
@@ -46,7 +47,6 @@ const WorldForm = (props) => {
 
             //refetch new data
             fetchData();
-            console.log('this one', fetchData());
         });
     };
 
@@ -62,9 +62,9 @@ const WorldForm = (props) => {
 
     return (
         <section>
-            <div className="my-6">
+            <div className="my-8">
                 <label className="text-lg">Country Name</label>
-                <input
+                {/* <input
                     onKeyDown={handleEnter}
                     onChange={(e) => {
                         setName(e.target.value);
@@ -74,9 +74,11 @@ const WorldForm = (props) => {
                     id=""
                     value={name}
                     className="mt-2 block w-full rounded-md py-1.5 border-2 border-gray-400  px-2 text-gray-900 shadow-sm placeholder:text-gray-400 md:text-lg text-sm sm:leading-6"
-                />
+                /> */}
+                <CountryInput setName={setName} handleSearch={handleSearch} />
+                
             </div>
-            <div className="flex mx-2 justify-end">
+            <div className="flex mx-2 mt-2 justify-end">
                 <button
                     onClick={() => {
                         toggleModal();

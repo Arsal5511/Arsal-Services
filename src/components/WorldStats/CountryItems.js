@@ -45,7 +45,7 @@ const CountryItems = ({ data, handleDelete }) => {
                 };
 
                 return (
-                    <div className="flex flex-col px-3 pt-2 m-3 bg-blue-200  items-center justify-center rounded-xl backdrop:z shadow-lg ">
+                    <div key={index} className="flex flex-col px-3 pt-2 m-3 bg-blue-200  items-center justify-center rounded-xl backdrop:z shadow-lg ">
                         <div id="cross" className="w-[100%] flex justify-end">
                             <div
                                 onClick={handleCopy}
