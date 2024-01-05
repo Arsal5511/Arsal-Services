@@ -10,10 +10,10 @@ const Index = () => {
   const [todos, setTodos] = useState([]);
 
   const getData = () => {
-    let data = sessionStorage.getItem("myPlans");
+    let data = localStorage.getItem("myPlans");
     data = JSON.parse(data);
     if (data !== null) {
-      setTodos(data);
+      setTodos(data || [])
     }
   };
   useEffect(() => {
@@ -26,18 +26,17 @@ const Index = () => {
     });
     setTodos(updatedTodos);
     const sessionalData = JSON.stringify(updatedTodos);
-    sessionStorage.setItem("myPlans", sessionalData);
+    localStorage.setItem("myPlans", sessionalData);
   };
 
   const handleEditTodo = (id, updatedData) => {
     const updatedTodos = todos?.map((todo) =>
       todo.id === id ? { ...todo, ...updatedData } : todo
     );
-    const sessionalData = JSON.stringify(updatedTodos);
-    sessionStorage.setItem("myPlans", sessionalData);
+    const localData = JSON.stringify(updatedTodos);
+    localStorage.setItem("myPlans", localData);
     getData();
   };
-
   return (
     <>
       <div className="flex flex-col items-center min-h-[85vh] mt-[120px] w-[95%] md:w-[80%] lg:w-[60%] mx-auto ">

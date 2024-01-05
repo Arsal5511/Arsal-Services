@@ -8,7 +8,6 @@ const TodoForm = ({ toggleModal, todos, todo, setTodos, onEdit, target }) => {
   const [date, setDate] = useState(currentDate);
 
 
-  console.log(date)
   const addData = () => {
     if (inputText.trim() !== "") {
       const newTodo = {
@@ -20,9 +19,8 @@ const TodoForm = ({ toggleModal, todos, todo, setTodos, onEdit, target }) => {
       const updData = [...todos, newTodo];
       setTodos(updData);
 
-      // console.log(updData, "todo");
       const sessionalData = JSON.stringify(updData);
-      sessionStorage.setItem("myPlans", sessionalData);
+      localStorage.setItem("myPlans", sessionalData);
       setInputText("");
     }
   };

@@ -41,7 +41,7 @@ const WorldForm = (props) => {
             //   update State
             setData(updData);
 
-            // uploaded data to sessional storage
+            // uploaded data to Local storage
             const localData = JSON.stringify(updData);
             localStorage.setItem("world", localData);
 
@@ -54,6 +54,10 @@ const WorldForm = (props) => {
         apiFetch();
         toggleModal();
     };
+    // document.addEventListener('keydown', (event) => {
+    //     if (event.key === 'Enter') {
+    //         handleSearch();
+    //     }})
     const handleEnter = (button) => {
         if (button.key === "Enter") {
             handleSearch();
@@ -76,7 +80,7 @@ const WorldForm = (props) => {
                     className="mt-2 block w-full rounded-md py-1.5 border-2 border-gray-400  px-2 text-gray-900 shadow-sm placeholder:text-gray-400 md:text-lg text-sm sm:leading-6"
                 /> */}
                 <CountryInput setName={setName} handleSearch={handleSearch} />
-                
+
             </div>
             <div className="flex mx-2 mt-2 justify-end">
                 <button

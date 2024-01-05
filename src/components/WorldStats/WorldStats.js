@@ -24,8 +24,8 @@ const WorldStats = () => {
             return country?.name.official !== name;
         });
         setData(updatedStats);
-        const sessionalData = JSON.stringify(updatedStats);
-        sessionStorage.setItem("world", sessionalData);
+        const localData = JSON.stringify(updatedStats);
+        localStorage.setItem("world", localData);
     };
 
 
